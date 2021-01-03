@@ -1,0 +1,27 @@
+<h2>Curriculum</h2>
+
+<div class="book-item" *ngFor="let book of books | async">
+  <div>
+    <img src="{{book.image}}">
+  </div>
+  <div class="book-description">
+  <h3 class="book-description">{{ book.name }}</h3>
+
+  <p *ngIf="book.description">{{ book.description }}</p>
+
+  <a [title]="books" [routerLink]="['/bookContents', book.id]">
+    Contents
+  </a>
+  <br />
+  <a [title]="books" [routerLink]="['/bookLesson', book.id, 'current']">
+    Current Lesson
+  </a>
+  </div>
+
+  
+
+  <!--
+  <button (click)="bookContents()">
+    Contents
+  </button>
+--></div>

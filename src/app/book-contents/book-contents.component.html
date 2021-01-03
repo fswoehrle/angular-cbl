@@ -1,0 +1,26 @@
+<h2>Book Contents</h2>
+
+<div *ngIf="book">
+  <h3>{{ book.name }}</h3>
+  <h4>{{ book.price | currency }}</h4>
+  <p>{{ book.description }}</p>
+  <p>{{ book.contents }}</p>
+  <ol>
+    <li>
+      <a [title]="book" [routerLink]="['/bookLesson', book.id, 1]"
+        >Chapter 1</a
+      >
+    </li>
+    <li>
+      <a [title]="book" [routerLink]="['/bookLesson', book.id, 2]"
+        >Chapter 2</a
+      >
+    </li>
+    <li>
+      <a [title]="book" [routerLink]="['/bookLesson', book.id, 3]"
+        >Chapter 3</a
+      >
+    </li>
+    <li>...</li>
+  </ol>
+</div>

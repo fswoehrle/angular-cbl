@@ -1,0 +1,9 @@
+<h3>Lesson</h3>
+<div>ID: {{(lesson | async)?.lesson.id}}</div>
+<div>Book: {{(lesson | async)?.lesson.book}}</div>
+<div>Chapter: {{(lesson | async)?.lesson.chapterTitle}}</div>
+
+<div *ngFor="let par of (lesson | async)?.lesson.paragraphs">
+  <h4>{{ par.title }}</h4>
+  <p [innerHTML]="par.content"></p>
+</div>
