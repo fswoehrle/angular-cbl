@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LessonService } from "../lesson.service";
-
-//import { books } from '../books';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
@@ -9,7 +8,7 @@ import { LessonService } from "../lesson.service";
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-  books;
+  books: Observable<Object>;
 
   constructor(
     private lessonService: LessonService

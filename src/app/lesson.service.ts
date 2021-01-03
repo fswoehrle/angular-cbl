@@ -10,15 +10,15 @@ export class LessonService {
 
   getCurrentLesson(bookID) {
     //TODO: die current lesson id berechnen!
-    return this.http.get("/assets/301.json");
+    return this.http.get("assets/301.json");
   }
 
   getLesson(bookID, LessonID) {
     let id: Number = Number(bookID) * 100 + Number(LessonID);
-    return this.http.get("/assets/" + id + ".json");
+    return this.http.get("assets/" + id + ".json");
   }
 
   getBooks() {
-    return this.http.get("/assets/cbl_books.json");
+    return this.http.get("assets/cbl_books.json");
   }
 }
