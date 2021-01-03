@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-
 import { ActivatedRoute } from "@angular/router";
-
-import { books } from "../books";
+import { Observable } from 'rxjs';
+import { LessonService } from "../lesson.service";
 
 @Component({
   selector: "app-book-contents",
@@ -10,16 +9,16 @@ import { books } from "../books";
   styleUrls: ["./book-contents.component.css"]
 })
 export class BookContentsComponent implements OnInit {
-  book;
+  contents: Observable<Object>;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private lessonService: LessonService
+    ) {}
 
   ngOnInit() {
     // First get the book id from the current route.
-    const bookIdFromRoute = this.route.snapshot.paramMap.get("bookId");
-    // Find the product that correspond with the id provided in route.
-    this.book = books.find(book => {
-      return book.id === Number(bookIdFromRoute);
-    });
+    const bookId = this.route.snapshot.paramMap.get("bookId");
+    this.contents = this.lessonService.getContents(bookId);
   }
 }

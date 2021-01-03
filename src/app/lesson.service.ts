@@ -8,17 +8,22 @@ export class LessonService {
 
   constructor(private http: HttpClient) {}
 
-  getCurrentLesson(bookID) {
+  getCurrentLesson(bookID:String) {
     //TODO: die current lesson id berechnen!
     return this.http.get("assets/301.json");
   }
 
-  getLesson(bookID, LessonID) {
+  getLesson(bookID:String, LessonID:String) {
     let id: Number = Number(bookID) * 100 + Number(LessonID);
     return this.http.get("assets/" + id + ".json");
   }
 
   getBooks() {
     return this.http.get("assets/cbl_books.json");
+  }
+
+  getContents(bookID:String) {
+    let id: Number = Number(bookID) * 100;
+    return this.http.get("assets/" + id + ".json");
   }
 }

@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-
 import { ActivatedRoute } from "@angular/router";
-
+import { Observable } from 'rxjs';
 import { LessonService } from "../lesson.service";
 
 @Component({
@@ -10,7 +9,7 @@ import { LessonService } from "../lesson.service";
   styleUrls: ["./book-lesson.component.css"]
 })
 export class BookLessonComponent implements OnInit {
-  lesson;
+  lesson: Observable<Object>;
   
   constructor(
     private route: ActivatedRoute,
@@ -18,16 +17,14 @@ export class BookLessonComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // First get the book id from the current route.
-    const bookIdFromRoute = this.route.snapshot.paramMap.get("bookId");
-    const lessonIdFromRoute = this.route.snapshot.paramMap.get("lessonId");
+    // Get parameters from current route
+    const bookId = this.route.snapshot.paramMap.get("bookId");
+    const lessonId = this.route.snapshot.paramMap.get("lessonId");
 
-    let bookId: number = Number(bookIdFromRoute);
-
-    if (lessonIdFromRoute == "current") {
+    // Get lesson content
+    if (lessonId == "current") {
       this.lesson = this.lessonService.getCurrentLesson(bookId);
     } else {
-      let lessonId: number = Number(lessonIdFromRoute);
       this.lesson = this.lessonService.getLesson(bookId, lessonId);
     }
   }

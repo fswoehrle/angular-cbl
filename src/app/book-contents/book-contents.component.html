@@ -1,5 +1,21 @@
 <h2>Book Contents</h2>
 
+<div *ngFor="let item of (contents | async)?.contents.items">
+  <div *ngIf="item.style === 'chapter'">
+    <p><b>{{item.chapterTitle}}</b></p>
+  </div>
+
+  <div *ngIf="item.style === 'lesson' && item.refId === '0';then withoutRef else withRef">here is ignored</div>    
+    <ng-template #withoutRef>
+      <p>{{item.lessonTitle}}</p>
+    </ng-template>
+    
+    <ng-template #withRef>
+      <p><a [title]="contents" [routerLink]="['/bookLesson',(contents | async)?.contents.bookId, item.refId]">{{item.lessonTitle}}</a></p>
+    </ng-template>
+</div>
+
+<!--
 <div *ngIf="book">
   <h3>{{ book.name }}</h3>
   <h4>{{ book.price | currency }}</h4>
@@ -24,3 +40,4 @@
     <li>...</li>
   </ol>
 </div>
+-->
