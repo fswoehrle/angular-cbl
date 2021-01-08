@@ -1,3 +1,8 @@
+/*
+Infos:
+https://florimond.dev/blog/articles/2018/09/consuming-apis-in-angular-the-model-adapter-pattern/
+*/
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { environment } from './environments/environment';

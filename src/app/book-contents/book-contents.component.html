@@ -1,6 +1,10 @@
 <h2>Book Contents</h2>
 
-<div *ngFor="let item of (contents | async)?.contents.items">
+<div *ngIf="loading">loading...</div>
+
+<div *ngIf="errorMessage"><i>Sorry, no data yet</i><br>{{errorMessage | json}}</div>
+
+<div *ngFor="let item of content.items">
   <div *ngIf="item.style === 'chapter'">
     <p><b>{{item.chapterTitle}}</b></p>
   </div>
@@ -11,33 +15,50 @@
     </ng-template>
     
     <ng-template #withRef>
-      <p><a [title]="contents" [routerLink]="['/bookLesson',(contents | async)?.contents.bookId, item.refId]">{{item.lessonTitle}}</a></p>
+      <p><a [title]="item" [routerLink]="['/bookLesson',content.bookId, item.refId]">{{item.lessonTitle}}</a></p>
     </ng-template>
 </div>
 
 <!--
-<div *ngIf="book">
-  <h3>{{ book.name }}</h3>
-  <h4>{{ book.price | currency }}</h4>
-  <p>{{ book.description }}</p>
-  <p>{{ book.contents }}</p>
-  <ol>
-    <li>
-      <a [title]="book" [routerLink]="['/bookLesson', book.id, 1]"
-        >Chapter 1</a
-      >
-    </li>
-    <li>
-      <a [title]="book" [routerLink]="['/bookLesson', book.id, 2]"
-        >Chapter 2</a
-      >
-    </li>
-    <li>
-      <a [title]="book" [routerLink]="['/bookLesson', book.id, 3]"
-        >Chapter 3</a
-      >
-    </li>
-    <li>...</li>
-  </ol>
+<br><br><br>
+<div *ngIf="(content | async) as contentz">
+<div *ngFor="let item of contentz[0].items">
+  <div *ngIf="item.style === 'chapter'">
+    <p><b>{{item.chapterTitle}}</b></p>
+  </div>
+
+  <div *ngIf="item.style === 'lesson' && item.refId === '0';then withoutRef else withRef">here is ignored</div>    
+    <ng-template #withoutRef>
+      <p>{{item.lessonTitle}}</p>
+    </ng-template>
+    
+    <ng-template #withRef>
+      <p><a [title]="item" [routerLink]="['/bookLesson',contentz[0].bookId, item.refId]">{{item.lessonTitle}}</a></p>
+    </ng-template>
+</div>
+
+
+
+    </div>
+-->
+<!--
+
+
+
+
+
+<div *ngFor="let item of (this.content|async)[0].items">
+  <div *ngIf="item.style === 'chapter'">
+    <p><b>{{item.chapterTitle}}</b></p>
+  </div>
+
+  <div *ngIf="item.style === 'lesson' && item.refId === '0';then withoutRef else withRef">here is ignored</div>    
+    <ng-template #withoutRef>
+      <p>{{item.lessonTitle}}</p>
+    </ng-template>
+    
+    <ng-template #withRef>
+      <p><a [title]="item" [routerLink]="['/bookLesson','1', item.refId]">{{item.lessonTitle}}</a></p>
+    </ng-template>
 </div>
 -->

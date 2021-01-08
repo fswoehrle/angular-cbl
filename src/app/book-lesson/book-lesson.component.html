@@ -1,9 +1,18 @@
-<h3>Lesson</h3>
-<div>ID: {{(lesson | async)?.lesson.id}}</div>
+<h3>Lesson {{(lesson | async)?.lesson.lessonTitle}}</h3>
 <div>Book: {{(lesson | async)?.lesson.book}}</div>
-<div>Chapter: {{(lesson | async)?.lesson.chapterTitle}}</div>
 
 <div *ngFor="let par of (lesson | async)?.lesson.paragraphs">
+
+  <div *ngIf="par.style === 'studyParagraph'">
+    <br>
+    <div class="book-item">
+      <img src="assets/StudyingGodsWord.PNG" width="25%" height="25%">
+      <div>
+          <h4>{{ par.title }}</h4>
+          <p [innerHTML]="par.content"></p>
+      </div>
+    </div>
+  </div>
   <h4>{{ par.title }}</h4>
   <p [innerHTML]="par.content"></p>
 </div>

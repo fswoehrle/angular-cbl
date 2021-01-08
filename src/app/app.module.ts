@@ -10,6 +10,8 @@ import { BookListComponent } from "./book-list/book-list.component";
 import { BookContentsComponent } from "./book-contents/book-contents.component";
 import { BookLessonComponent } from "./book-lesson/book-lesson.component";
 import { LessonService } from "./lesson.service";
+import { ContentService } from './content.service';
+import { CblBookService } from './book.service';
 
 @NgModule({
   imports: [
@@ -30,7 +32,7 @@ import { LessonService } from "./lesson.service";
     BookLessonComponent
   ],
   bootstrap: [AppComponent],
-  providers: [LessonService]
+  providers: [LessonService, ContentService, CblBookService]
 })
 export class AppModule {}
 

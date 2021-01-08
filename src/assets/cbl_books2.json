@@ -1,0 +1,32 @@
+[
+	{
+		"id": 1,
+		"cblType": "cblBook",
+		"data": {
+			"name": "Kindergarten",
+			"description": "Age 4-5, two years of material",
+			"image": "assets/KindergartenBook-small.png",
+			"contents_id": 100
+		}
+	},
+	{
+		"id": 2,
+		"cblType": "cblBook",
+		"data": {
+			"name": "Primary",
+			"description": "Age 6-8, three years of material",
+			"image": "assets/PrimaryBook-small.png",
+			"contents_id": 200
+		}
+	},
+	{
+		"id": 3,
+		"cblType": "cblBook",
+		"data": {
+			"name": "Junior",
+			"description": "Age 9-11, three years of material",
+			"image": "assets/JuniorBook-small.png",
+			"contents_id": 300
+		}
+	}
+]
