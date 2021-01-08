@@ -4,12 +4,11 @@
         "book":"Junior",
         "year":2,
         "language":"EN",
-        "chapterNumber":"1",
-        "lessonNumber":1,
-        "chapterTitle":"GOD CREATES MAN",
+        "lessonNumber":"1",
         "lessonTitle":"GOD CREATES MAN",
         "paragraphs":[
             {"title":"STUDYING GOD'S WORD",
+             "style":"studyParagraph",   
             "content":"<p><b>Bible Reference</b><br />Genesis 1:26-31; 2:4-25</p><p><b>Memory Verse</b><br />Psalm 8:6<br />You made man ruler over the works of your hands, you put everything under his feet.</p>"
             },
             {"title":"Bible Background",
@@ -22,7 +21,7 @@
                 "content":"<h3>Creating Interest</h3><p><b>Welcoming the Children</b><br>Each child, especially newcomers to the class, and children moving up from the Primary group, should be warmly greeted by the teacher so that he/she feels noticed. Give time for the children to introduce themselves and become acquainted with the classroom, their classmates and with you, their teacher.</p>"
             },
             {"title":"Telling The Bible Story",
-                "content":"<p><b>God Creates the Heavens and the Earth</b><br>“In the beginning God created the heavens and the earth.”<br>What was that new beginning? Where there had been nothing, God spoke and something came into being:<br>(The teacher points to the picture as he speaks.)</p>..."
+                "content":"<p><b>God Creates the Heavens and the Earth</b><br>\"In the beginning God created the heavens and the earth.\"<br>What was that new beginning? Where there had been nothing, God spoke and something came into being:<br>(The teacher points to the picture as he speaks.)</p>..."
             }
         ]
 }
