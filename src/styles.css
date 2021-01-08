@@ -18,7 +18,7 @@ body {
 }
 
 router-outlet + *  {
-  padding: 0 16px;
+  padding: 0 0px;
 }
 
 /* Text */
@@ -112,7 +112,7 @@ label {
 /* Top Bar */
 
 app-top-bar {
-  width: 100%;
+  width: 100vw;
   height: 68px;
   background-color: #1976d2;
   padding: 16px;
@@ -127,59 +127,21 @@ app-top-bar h1 {
   margin: 0;
 }
 
-/* Checkout Cart, Shipping Prices */
-
-.cart-item, .shipping-item {
-  width: 100%;
-  min-width: 400px;
-  max-width: 450px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 16px 32px;
-  margin-bottom: 8px;
-  border-radius: 2px;
-  background-color: #EEEEEE;
+.background {
+ width: 100vw;
+ height: 100%;
+ background-color: #045FB4;
 }
 
-.book-item {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
+.mainframe {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	max-width: 650px;
 	border-color: #c0c0c0;
 	border-style: solid;
 	border-width: 1pt;
-	margin: 0pt;
-  padding: 10pt;
-  margin-bottom: 5px;
-  margin-top: 5px;
-  background-color: #FCFCFC;
-  box-shadow: 5px 5px 30px grey;
+	padding: 10pt;
+	margin: 0 auto;
+	background-color: #FFFFFF;
 }
-
-.book-description {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 100%;
-	border-color: #c0c0c0;
-	border-style: solid;
-	border-width: 0pt;
-  margin: 0pt;
-  margin-left: 5px;
-  padding: 0pt;
-}
-
-h3.book-description {
-  font-size: 24px;
-  margin-top: 10pt;
-  margin-bottom: 0pt;
-  margin-left: 0pt;
-}
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

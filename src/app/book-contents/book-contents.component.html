@@ -1,20 +1,25 @@
-<h2>Book Contents</h2>
+<div class="background">
+  <div class="mainframe">
+    <h2>Book Contents</h2>
 
-<div *ngIf="loading">loading...</div>
+    <div *ngIf="loading">loading...</div>
 
-<div *ngIf="errorMessage"><i>Sorry, no data yet</i><br>{{errorMessage | json}}</div>
+    <div *ngIf="errorMessage"><i>Sorry, no data yet</i><br>{{errorMessage | json}}</div>
 
-<div *ngFor="let item of contentArray[0]?.items">
-  <div *ngIf="item.style === 'chapter'">
-    <p><b>{{item.chapterTitle}}</b></p>
+    <div *ngFor="let item of contentArray[0]?.items">
+      <div *ngIf="item.style === 'chapter'">
+        <p><b>{{item.chapterTitle}}</b></p>
+      </div>
+
+      <div *ngIf="item.style === 'lesson' && item.refId === '0';then withoutRef else withRef">here is ignored</div>
+      <ng-template #withoutRef>
+        <p>{{item.lessonTitle}}</p>
+      </ng-template>
+
+      <ng-template #withRef>
+        <p><a [title]="item" [routerLink]="['/bookLesson',contentArray[0]?.bookId, item.refId]">{{item.lessonTitle}}</a>
+        </p>
+      </ng-template>
+    </div>
   </div>
-
-  <div *ngIf="item.style === 'lesson' && item.refId === '0';then withoutRef else withRef">here is ignored</div>    
-    <ng-template #withoutRef>
-      <p>{{item.lessonTitle}}</p>
-    </ng-template>
-    
-    <ng-template #withRef>
-      <p><a [title]="item" [routerLink]="['/bookLesson',contentArray[0]?.bookId, item.refId]">{{item.lessonTitle}}</a></p>
-    </ng-template>
 </div>

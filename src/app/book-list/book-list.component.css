@@ -1,7 +1,37 @@
 
 
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/
+.book-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+	border-color: #c0c0c0;
+	border-style: solid;
+	border-width: 1pt;
+	margin: 0pt;
+  padding: 10pt;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  background-color: #FCFCFC;
+  box-shadow: 5px 5px 30px grey;
+}
+
+.book-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 100%;
+	border-color: #c0c0c0;
+	border-style: solid;
+	border-width: 0pt;
+  margin: 0pt;
+  margin-left: 5px;
+  padding: 0pt;
+}
+
+h3.book-description {
+  font-size: 24px;
+  margin-top: 10pt;
+  margin-bottom: 0pt;
+  margin-left: 0pt;
+}

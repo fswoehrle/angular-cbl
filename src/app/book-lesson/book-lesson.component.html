@@ -1,18 +1,27 @@
-<h3>Lesson {{(lesson | async)?.lesson.lessonTitle}}</h3>
-<div>Book: {{(lesson | async)?.lesson.book}}</div>
+<div class="background">
+  <div class="mainframe">
+    <h3>Lesson {{(lesson | async)?.lesson.lessonTitle}}</h3>
+    <div>Book: {{(lesson | async)?.lesson.book}}</div>
 
-<div *ngFor="let par of (lesson | async)?.lesson.paragraphs">
+    <div *ngFor="let par of (lesson | async)?.lesson.paragraphs">
 
-  <div *ngIf="par.style === 'studyParagraph'">
-    <br>
-    <div class="book-item">
-      <img src="assets/StudyingGodsWord.PNG" width="25%" height="25%">
-      <div>
+      <div [ngSwitch]="par.style">
+
+        <div *ngSwitchCase="'studyParagraph'">
+          <div class="book-item">
+            <img src="assets/StudyingGodsWord.PNG" width="25%" height="25%">
+            <div>
+              <h4>{{ par.title }}</h4>
+              <p [innerHTML]="par.content"></p>
+            </div>
+          </div>
+        </div>
+
+        <div *ngSwitchDefault>
           <h4>{{ par.title }}</h4>
           <p [innerHTML]="par.content"></p>
+        </div>
       </div>
     </div>
   </div>
-  <h4>{{ par.title }}</h4>
-  <p [innerHTML]="par.content"></p>
 </div>
