@@ -17,8 +17,8 @@ export class BookContentsComponent implements OnInit {
   errorMessage: String = '';
   //a: CblContent;
   //b: CblContent;
-  //contentArray: CblContent[] = [];
-  content:CblContent;
+  contentArray: CblContent[] = [];
+  //content:CblContent;
 
   constructor(
     private route: ActivatedRoute, 
@@ -40,7 +40,7 @@ export class BookContentsComponent implements OnInit {
     this.contentService.list(bookId)
       .subscribe(
         (response) => {
-          this.content = response[0];
+          this.contentArray = response;
           this.loading = false;
         },
         (error) => {
@@ -48,6 +48,8 @@ export class BookContentsComponent implements OnInit {
           this.loading = false;
         }
       )
+
+      console.log("contentArray: " + this.contentArray[0]);
     
     //this.loading = false;
     

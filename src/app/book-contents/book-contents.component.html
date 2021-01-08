@@ -4,7 +4,8 @@
 
 <div *ngIf="errorMessage"><i>Sorry, no data yet</i><br>{{errorMessage | json}}</div>
 
-<div *ngFor="let item of content.items">
+<!--<div *ngIf="(contentArray | async) as contentz"> -->
+<div *ngFor="let item of contentArray[0]?.items">
   <div *ngIf="item.style === 'chapter'">
     <p><b>{{item.chapterTitle}}</b></p>
   </div>
@@ -15,9 +16,10 @@
     </ng-template>
     
     <ng-template #withRef>
-      <p><a [title]="item" [routerLink]="['/bookLesson',content.bookId, item.refId]">{{item.lessonTitle}}</a></p>
+      <p><a [title]="item" [routerLink]="['/bookLesson',contentArray[0]?.bookId, item.refId]">{{item.lessonTitle}}</a></p>
     </ng-template>
 </div>
+<!--</div>--> 
 
 <!--
 <br><br><br>
