@@ -25,7 +25,7 @@ export class BookContentsComponent implements OnInit {
     // First get the book id from the current route.
     const bookId = this.route.snapshot.paramMap.get("bookId");
 
-    this.contentService.list(bookId)
+    this.contentService.getContents(bookId)
       .subscribe(
         (response) => {
           this.contentArray = response;

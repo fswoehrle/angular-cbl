@@ -1,24 +1,31 @@
 <div class="background">
   <div class="mainframe">
-    <h3>Lesson {{(lesson | async)?.lesson.lessonTitle}}</h3>
-    <div>Book: {{(lesson | async)?.lesson.book}}</div>
+    
+    <div *ngIf="loading">loading...</div>
+    <div *ngIf="errorMessage"><i>Sorry, no data yet</i></div>
 
-    <div *ngFor="let par of (lesson | async)?.lesson.paragraphs">
+    <div class="lessonTitle">
+      <h2>{{lessons[0]?.lessonTitle}}</h2>
+      <p>Lesson {{lessons[0]?.lessonNumber}}, {{lessons[0]?.book}}, {{lessons[0]?.year}}</p>
+    </div>
+
+    <div *ngFor="let par of lessons[0]?.paragraphs">
 
       <div [ngSwitch]="par.style">
 
+        
         <div *ngSwitchCase="'studyParagraph'">
-          <div class="book-item">
-            <img src="assets/StudyingGodsWord.PNG" width="25%" height="25%">
+          <h3>{{ par.title }}</h3>
+          <div class="study-item">
+            <img class="study-img" src="assets/StudyingGodsWord.PNG" width="25%" height="25%">
             <div>
-              <h4>{{ par.title }}</h4>
               <p [innerHTML]="par.content"></p>
             </div>
           </div>
         </div>
 
         <div *ngSwitchDefault>
-          <h4>{{ par.title }}</h4>
+          <h3>{{ par.title }}</h3>
           <p [innerHTML]="par.content"></p>
         </div>
       </div>

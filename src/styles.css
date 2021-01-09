@@ -1,7 +1,8 @@
 /* Global Styles */
 
 * {
-  font-family: 'Roboto', Arial, sans-serif;
+  /* font-family: 'Roboto', Arial, sans-serif;*/
+  font-family: 'Lora', serif;
   color: #616161;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -24,18 +25,42 @@ router-outlet + *  {
 /* Text */
 
 h1 {
-  font-size: 25px;
+  font-family: 'Rowdies', cursive;
+  font-weight: 700;
+  font-weight: bold;
+  font-size: 32px;
+  font-variant: small-caps;
+}
+
+@media screen and (max-width: 64em) {
+h1 {
+    font-size: 2.5em;
+  }
+}
+
+@media screen and (max-width: 50em) {
+h1 {
+    font-size: 2em;
+  }
+}
+
+@media screen and (max-width: 30em){
+h1 {
+    font-size: 1.5em;
+  }
 }
 
 h2 {
-  font-size: 20px;
+  font-family: 'Rowdies', cursive;
+  font-size: 24px;
 }
 
 h1, h2 {
-  font-weight: lighter;
+  font-weight:400;
 }
 
 h3 {
+  font-family: 'Rowdies', cursive;
   font-size: 18px;
   margin: 10pt,0pt;
 }
@@ -85,6 +110,7 @@ label {
   background-color: #1976d2;
   color: white;
   border: none;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .button:hover, button:hover {
@@ -136,8 +162,9 @@ app-top-bar h1 {
 .mainframe {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
-	max-width: 650px;
+	justify-content: baseline;
+  max-width: 650px;
+  min-height: 92vh;
 	border-color: #c0c0c0;
 	border-style: solid;
 	border-width: 1pt;

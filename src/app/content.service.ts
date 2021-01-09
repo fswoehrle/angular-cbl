@@ -11,7 +11,7 @@ export class ContentService {
 
   constructor(private http: HttpClient) {}
 
-  list(bookID: String): Observable<CblContent[]> {
+  getContents(bookID: String): Observable<CblContent[]> {
 
     let id: Number = Number(bookID) * 100;
     let url = "assets/" + id + ".json";

@@ -4,7 +4,7 @@
 
     <div *ngIf="loading">loading...</div>
 
-    <div *ngIf="errorMessage"><i>Sorry, no data yet</i><br>{{errorMessage | json}}</div>
+    <div *ngIf="errorMessage"><i>Sorry, no data yet</i></div>
 
     <div *ngFor="let item of contentArray[0]?.items">
       <div *ngIf="item.style === 'chapter'">

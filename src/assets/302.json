@@ -1,21 +1,27 @@
-{
-    "lesson": {
-        "id":2,
-        "book":"junior",
-        "year":2,
-        "language":"EN",
-        "chapterNumber":"1",
-        "chapterTitle":"Looking for the King, Part 2",
-        "paragraphs":[
-            {"title":"Studying",
-            "content":"<p><b>Reference</b><br />Matthew 2</p><p><b>Verse</b><br />abc<br />def</p>"
+[
+    {
+        "id": 302,
+        "cblType": "Lesson",
+        "language": "EN",
+        "book": "Junior",
+        "year": 2,
+        "lessonNumber": "2",
+        "lessonTitle": "God Looks for Man",
+        "paragraphs": [
+            {
+                "title": "Studying",
+                "style": "studyParagraph",
+                "content": "<p><b>Reference</b><br />Matthew 2</p><p><b>Verse</b><br />abc<br />def</p>"
             },
-            {"title":"Understanding the AIM",
-                "content":"<p>Through this lession...</p>"
+            {
+                "title": "Understanding the AIM",
+                "style": "normalParagraph",
+                "content": "<p>Through this lession...</p>"
             },
-            {"title":"Guiding...",
-                "content":"<h3>Creating Interest</h3><p><b>Discussion</b>Children, who has the nost to say...?</p>"
-            }            
+            {
+                "title": "Guiding...",
+                "content": "<h3>Creating Interest</h3><p><b>Discussion</b>Children, who has the nost to say...?</p>"
+            }
         ]
-}
-}
+    }
+]

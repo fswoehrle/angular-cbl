@@ -1,23 +1,29 @@
 [
-  {
-    "id": 1,
-	"name": "Kindergarten",
-	"description": "Age 4-5, two years of material",
-	"image": "assets/KindergartenBook-small.png",
-	"contents_id": 100
-  },
-  {
-    "id": 2,
-	"name": "Primary",
-	"description": "Age 6-8, three years of material",
-	"image": "assets/PrimaryBook-small.png",
-	"contents_id": 200
-  },
-  {
-    "id": 3,
-	"name": "Junior",
-	"description": "Age 9-11, three years of material",
-	"image": "assets/JuniorBook-small.png",
-	"contents_id": 300
-  }
+	{
+		"id": 1,
+		"cblType": "Book",
+		"language": "EN",
+		"name": "Kindergarten",
+		"description": "Age 4-5, two years of material",
+		"image": "assets/KindergartenBook-small.png",
+		"contents_id": 100
+	},
+	{
+		"id": 2,
+		"cblType": "Book",
+		"language": "EN",
+		"name": "Primary",
+		"description": "Age 6-8, three years of material",
+		"image": "assets/PrimaryBook-small.png",
+		"contents_id": 200
+	},
+	{
+		"id": 3,
+		"cblType": "Book",
+		"language": "EN",
+		"name": "Junior",
+		"description": "Age 9-11, three years of material",
+		"image": "assets/JuniorBook-small.png",
+		"contents_id": 300
+	}
 ]

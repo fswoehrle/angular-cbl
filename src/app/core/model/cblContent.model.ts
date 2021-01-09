@@ -1,8 +1,7 @@
-import { Injectable } from "@angular/core";
-import { Adapter } from "../adapter";
+//import { Injectable } from "@angular/core";
+//import { Adapter } from "../adapter";
 
 import { CblObject } from "./cblObject.model";
-import { CblContentItem } from "./cblContentItem.model";
 
 export class CblContent extends CblObject{
 constructor(
@@ -16,8 +15,20 @@ constructor(
 	) {
 		super(id, cblType, language);
 	}
+}
+
+export class CblContentItem {
+	constructor(
+		public style: string,
+		public chapterNumber: string,
+		public chapterTitle: string,
+		public refId: string,
+		public lessonNumber: string,
+		public lessonTitle: string,
+	) { }
 
 }
+/*
 @Injectable({
 	providedIn: "root",
 })
@@ -28,3 +39,4 @@ export class CblContentAdapter implements Adapter<CblContent> {
 	}
 
 }
+*/

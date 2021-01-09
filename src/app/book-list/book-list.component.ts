@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LessonService } from "../lesson.service";
-import { Observable } from 'rxjs';
+import { CblBookService } from "../book.service";
+import { CblBook } from '../core/model/cblBook.model';
 
 @Component({
   selector: 'app-book-list',
@@ -8,13 +8,29 @@ import { Observable } from 'rxjs';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-  books: Observable<Object>;
+  books: CblBook[] = [];
+  loading: Boolean = false;
+  errorMessage: String = '';
 
   constructor(
-    private lessonService: LessonService
-  ) {}
-  
+    private bookService: CblBookService
+  ) { }
+
   ngOnInit(): void {
-    this.books = this.lessonService.getBooks(); 
+    this.bookService.getAllBooks()
+      .subscribe(
+        (response) => {
+          this.books = response;
+          this.loading = false;
+        },
+        (error) => {
+          this.errorMessage = error;
+          this.loading = false;
+        }
+      )
+  }
+
+  clickContents() {
+    window.alert('The product has been shared!');
   }
 }

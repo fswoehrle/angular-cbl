@@ -1,24 +1,23 @@
 <div class="background">
-<div class="mainframe">
-  <h2>Curriculum</h2>
+  <div class="mainframe">
+    <h2>Curriculum</h2>
 
-  <div class="book-item" *ngFor="let book of books | async">
-    <div>
-      <img src="{{book.image}}">
-    </div>
-    <div class="book-description">
-      <h3 class="book-description">{{ book.name }}</h3>
+    <div *ngIf="loading">loading...</div>
+    <div *ngIf="errorMessage"><i>Sorry, no data yet</i></div>
 
-      <p *ngIf="book.description">{{ book.description }}</p>
+    <div class="book-item" *ngFor="let book of books">
+      <div>
+        <img src="{{book.image}}">
+      </div>
+      <div class="book-description">
+        <h3 class="book-description">{{ book.name }}</h3>
 
-      <a [title]="books" [routerLink]="['/bookContents', book.id]">
-        Contents
-      </a>
-      <br />
-      <a [title]="books" [routerLink]="['/bookLesson', book.id, 'current']">
-        Current Lesson
-      </a>
+        <p *ngIf="book.description">{{ book.description }}</p>
+
+         <a routerLink="/bookContents/{{book.id}}"><button class="button_{{book.id}}">Contents</button></a>
+        <a routerLink="/bookLesson/{{book.id}}/current"><button class="button_{{book.id}}">Current Lesson</button></a>
+
+      </div>
     </div>
   </div>
-</div>
 </div>

@@ -1,9 +1,9 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { throwError, Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
+import { CblLesson } from './core/model/cblLesson.model';
 
-import { CblContent } from './core/model/cblContent.model';
 
 @Injectable({
   providedIn: "root"
@@ -12,52 +12,24 @@ export class LessonService {
 
   constructor(private http: HttpClient) { }
 
-  getCurrentLesson(bookID: String) {
-    //TODO: die current lesson id berechnen!
-    return this.http.get("assets/301.json");
+  getCurrentLesson(bookID: String): Observable<CblLesson[]> {
+    return this.getLessons("3","1");
   }
 
-  getLesson(bookID: String, LessonID: String) {
-    let id: Number = Number(bookID) * 100 + Number(LessonID);
-    return this.http.get("assets/" + id + ".json");
-  }
+  getLessons(bookID: String, lessonID: String): Observable<CblLesson[]> {
 
-  getBooks() {
-    return this.http.get("assets/cbl_books.json");
-  }
+    let id: Number = Number(bookID) * 100 + Number(lessonID);
+    let url = "assets/" + id + ".json";
 
-
-  getContents(bookID: String) {
-    // now returns an Observable of Config
-    let id: Number = Number(bookID) * 100;
-    return this.http.get<CblContent>("assets/" + id + ".json")
-  }
-
-
-
-  /*
-  getContents(bookID: String): Observable<Content> {
-    let id: Number = Number(bookID) * 100;
-    return this.http.get<Content>("assets/" + id + ".json")
+    return this.http
+      .get(url)
       .pipe(
-        catchError(this.handleError)
+        map((data: any[]) =>
+          data.map(
+            (item: any) =>
+              new CblLesson(item.id, item.cblType, item.language, item.book, item.year, item.lessonNumber, item.lessonTitle, item.paragraphs)
+          )
+        )
       );
   }
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error.message);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
-    }
-    // Return an observable with a user-facing error message.
-    return throwError(
-      error.status + ", " + error.error.message);
-  }
-  */
 }

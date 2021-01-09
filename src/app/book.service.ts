@@ -12,9 +12,9 @@ export class CblBookService {
   constructor(private http: HttpClient) {}
 
   getAllBooks(): Observable<CblBook[]> {
-
+    
     let url = "assets/cbl_books.json";
-
+    
     return this.http
       .get(url)
       .pipe(
